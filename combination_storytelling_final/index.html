@@ -1,0 +1,74 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The story of the life cycle of stray animals</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- Fixed interactive control -->
+  <div id="controls" class="fixed top-4 right-4 bg-white p-4 shadow-lg rounded z-50 space-y-4">
+    <!-- Year selector is retained on all pages -->
+    <div>
+      <label for="year-select" class="block text-sm font-medium">Select year</label>
+      <select id="year-select" class="mt-1 block w-full border-gray-300 rounded"></select>
+    </div>
+    <!-- Wrap the budget slider in a container with id="slider-control", hidden by default -->
+    <div id="slider-control">
+      <label for="budget-slider" class="block text-sm font-medium">Budget simulation</label>
+      <div class="flex items-center space-x-2">
+        <input type="range" id="budget-slider" class="flex-1" />
+        <span id="budget-value" class="w-24 text-right font-mono"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== Full-screen scrollable content area ========== -->
+  <div id="scrolly">
+    <section class="step" data-step="intake">
+      <div class="chart-area"></div>
+      <div class="step-text">
+        <h2>Step One: Intake</h2>
+        <p>How many stray animals are taken into shelters every year?</p>
+      </div>
+    </section>
+    <section class="step" data-step="medical">
+      <div class="chart-area"></div>
+      <div class="step-text">
+        <h2>Step Two: Medical</h2>
+        <p>How many stray animals are admitted to shelters for treatment each year due to injury or illness?</p>
+      </div>
+    </section>
+    <section class="step" data-step="adoption">
+      <div class="chart-area"></div>
+      <div class="step-text">
+        <h2>Step Three: Adoption</h2>
+        <p>How many animals were eventually adopted? How is the revenue of the adopter?</p>
+      </div>
+    </section>
+    <section class="step" data-step="euthanasia">
+      <div class="chart-area"></div>
+      <div class="step-text">
+        <h2>Step Four: Euthanasia</h2>
+        <p>How many animals have been euthanized? How does the euthanasia rate change?</p>
+      </div>
+    </section>
+    <section class="step" data-step="kpi">
+      <div class="chart-area"></div>
+      <div class="step-text">
+        <h2>Summary: KPI Dashboard</h2>
+        <p>If you were a manager, how would you allocate the budget to improve the welfare index?</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

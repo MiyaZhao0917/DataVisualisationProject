@@ -1,0 +1,56 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The story of the life cycle of stray animals</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+</head>
+<body>
+
+  <div id="scrolly">
+    <section class="step" data-step="intake">
+      <div class="chart-area"></div>
+      <div class="step-text">
+        <h2>Step One: Intake</h2>
+        <p>How many stray animals are taken into shelters every year?</p>
+      </div>
+    </section>
+    <section class="step" data-step="medical">
+      <div class="chart-area"></div>
+      <div class="step-text">
+        <h2>Step Two: Medical</h2>
+        <p>How many stray animals are admitted to shelters for treatment each year due to injury or illness?</p>
+      </div>
+    </section>
+    <section class="step" data-step="adoption">
+      <div class="chart-area"></div>
+      <div class="step-text">
+        <h2>Step Three: Adoption</h2>
+        <p>How many animals were eventually adopted? How is the revenue of the adopter?</p>
+      </div>
+    </section>
+    <section class="step" data-step="euthanasia">
+      <div class="chart-area"></div>
+      <div class="step-text">
+        <h2>Step Four: Euthanasia</h2>
+        <p>How many animals have been euthanized? How does the euthanasia rate change?</p>
+      </div>
+    </section>
+    <section class="step" data-step="kpi">
+      <div class="chart-area"></div>
+      <div class="step-text">
+        <h2>Summary: KPI Dashboard</h2>
+        <p>If you were a manager, how would you allocate the budget to improve the welfare index?</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

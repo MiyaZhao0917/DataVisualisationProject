@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>Adoption data of stray animals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Leaflet CSS for map rendering -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+  <!-- MarkerCluster CSS for clustering map markers -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"
+  />
+</head>
+<body>
+  <header>
+    <h1>Adoption data of stray animals</h1>
+  </header>
+
+  <!-- Navigation links to different sections of the report -->
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#initial-analysis">Initial analysis</a>
+    <a href="#interactive-map">Interactive map</a>
+    <a href="#conclusion">Conclusion</a>
+  </nav>
+
+  <main>
+    <!-- === Overview Section === -->
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>
+        This project utilizes the provided <code>animal-data-1.csv</code> dataset. Firstly, exploratory analysis (pie charts, bar charts, line graphs, etc.) is conducted to understand the overall characteristics such as the annual containment trend, trend distribution, popular species, and the duration of stay in the city. Subsequently, an interactive map was designed and implemented, which could be filtered by year, species and direction, and linked with charts to display key indicators, providing intuitive decision support for shelter managers.
+      </p>
+    </section>
+
+    <!-- === Initial Analysis: Charts === -->
+    <section id="initial-analysis">
+      <h2>Initial analysis</h2>
+      <div id="initial-charts">
+        <!-- Annual intake line chart -->
+        <div>
+          <h3>Annual Intake by Year</h3>
+          <canvas id="chartAnnualIntake"></canvas>
+        </div>
+
+        <!-- Movement type distribution pie chart -->
+        <div>
+          <h3>Movement Type Distribution</h3>
+          <canvas id="chartMovementDistribution"></canvas>
+        </div>
+
+        <!-- Top 10 breeds bar chart -->
+        <div>
+          <h3>Top 10 Breeds</h3>
+          <canvas id="chartTopBreeds"></canvas>
+        </div>
+
+        <!-- Top 10 average stay by city bar chart -->
+        <div>
+          <h3>Top 10 Average Stay by City</h3>
+          <canvas id="chartCityAvgStay"></canvas>
+        </div>
+      </div>
+      <p>
+        The above four charts respectively show:<br>
+        1. <strong>Annual Intake by Year</strong> —— The changes in the number of shelters taken in each year from 2009 to 2019<br>
+        2. <strong>Movement Type Distribution</strong> —— The proportions of different movement types (Adoption, Foster, Reclaimed, Transfer, Released To Wild, Stolen)<br>
+        3. <strong>Top 10 Breeds</strong> —— The top ten breeds that appeared most frequently<br>
+        4. <strong>Top 10 Average Stay by City</strong> —— The top ten cities with the highest average animal stay duration under different locations<br>
+        I presented the important data with different types of charts. Through these visualizations, we can intuitively understand the overall distribution and key focus dimensions of the shelter data, which provides an important basis for the subsequent interactive visualization design.
+      </p>
+    </section>
+
+    <!-- === Interactive Map Visualization === -->
+    <section id="interactive-map">
+      <h2>Interactive Map</h2>
+      <p>
+        After completing the initial statistics, I have implemented an interactive map that can dynamically filter and link charts by "year", "species", and "trend"
+      </p>
+
+      <div id="visualization-container">
+        <!-- Sidebar for filter controls -->
+        <div id="sidebar">
+          <h3>Filter</h3>
+          <!-- Year slider: updates yearValue span on input -->
+          <label for="yearSlider">Year (<span id="yearValue">2017</span>)</label>
+          <input
+            id="yearSlider"
+            type="range"
+            min="2009"
+            max="2025"
+            step="1"
+            value="2017"
+          />
+
+          <!-- Species dropdown -->
+          <label for="speciesSelect">Species</label>
+          <select id="speciesSelect">
+            <option value="All">All</option>
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+          </select>
+
+          <!-- Species dropdown -->
+          <label for="outcomeSelect">Outcome</label>
+          <select id="outcomeSelect">
+            <option value="All">All</option>
+            <option value="Adoption">Adoption</option>
+            <option value="Return">Return</option>
+            <option value="Deceased">Deceased</option>
+          </select>
+
+          <!-- Outcome distribution pie chart -->
+          <div class="chart-container">
+            <h3>Outcome Distribution</h3>
+            <canvas id="outcomeChart"></canvas>
+          </div>
+
+          <!-- Outcome distribution pie chart -->
+          <div class="chart-container">
+            <h3>Top 5 Breeds</h3>
+            <canvas id="breedChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Map container -->
+        <div id="map-container">
+          <div id="map"></div>
+          <div class="legend" id="legend">
+            <div class="legend-title">Circle color: Adoption Rate</div>
+            <div class="legend-gradient"></div>
+            <div class="legend-labels">
+              <span>0%</span><span>50%</span><span>100%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === Conclusion === -->
+    <section id="conclusion">
+      <h2>Conclusion</h2>
+      <p>
+        Through the initial analysis and the dynamic screening and linkage of the interactive map, I have obtained the following main findings:<br>
+        1. Annual Intake trend: The collection volume increased significantly after 2017, suggesting the need to investigate the changes in the external environment at that time.<br>
+        2. Movement Type Distribution: Adoption accounted for the largest proportion (56.5%), foster care (24.4%), and being claimed (13.8%). The adoption success rate needs to be improved in the future.<br>
+        3. Popular breeds: High-frequency breeds such as short-haired domestic cats, German Shepherd hybrids, and Beagles should be given priority in the screening process.<br>
+        4. Duration of stay in the city: The office area, the area where large cats can be adopted, and other places where people stay for too long need to be given special attention to reduce the bottleneck of staying.<br>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Adoption data of stray animals · Made by Miya Zhao
+  </footer>
+
+  <!-- External JS libraries for map, clustering, CSV parsing, and charts -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script src="https://unpkg.com/papaparse@5.3.2/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>

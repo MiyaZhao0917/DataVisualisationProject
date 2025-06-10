@@ -1,0 +1,79 @@
+/* Global Font and color */
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fdfdfd;
+}
+
+/* Title style */
+h2 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Tooltip style */
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Hide style, used to click the legend to hide the corresponding curve or element */
+.hidden {
+  display: none;
+}
+
+/* Indicator card style */
+.summary-card {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 10px 0;
+  transition: transform 0.2s;
+}
+.summary-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Line or bar chart highlighting interaction */
+.line-hover {
+  stroke-width: 4px !important;
+}
+
+/* Slider sidebar information style */
+#year-info {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+/* Scatter plot illustration container */
+#scatter-legend svg {
+  margin-top: 10px;
+}
+
+/* Remove the automatic overwriting of svg heights to ensure that "height" takes effect in HTML */
+svg {
+  width: 100%;
+}
+
+/* Footer styling */
+footer {
+  background: #f1f1f1;
+  color: #555;
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+}

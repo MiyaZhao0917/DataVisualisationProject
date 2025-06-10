@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Annual operating data of animal rescue institutions</title>
+  <!-- Introduce Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <!-- Custom style -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">Annual operating data of animal rescue institutions</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#overview">Overview</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#trends">Trends</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#comparison">Indicator Comparison</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Overview -->
+  <section id="overview" class="pt-5 mt-5">
+    <div class="container">
+      <h2 class="mt-5">Overview</h2>
+      <p>This section presents the overall trend of core indicators during the period from 2000 to 2019.</p>
+      <!-- Indicator Card Row -->
+      <div class="row text-center" id="summary-cards">
+        <!-- JS dynamically generates four cards: Employees, Budget, Total Intake, and Adoptions -->
+      </div>
+      <!-- Line/area chart container -->
+      <div class="row">
+        <div class="col-12">
+          <svg id="overview-chart" width="100%" height="400px"></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trends -->
+  <section id="trends" class="pt-5">
+    <div class="container">
+      <h2 class="mt-5">Trends</h2>
+      <p>This section provides multiple sets of switchable line charts and stacked bar charts to showcase the annual trends in different dimensions.</p>
+      <!-- Dropdown of selecting indicator -->
+      <div class="form-group">
+        <label for="metric-select">Select two indicators to be compared:</label>
+        <select class="form-control w-50" id="metric-select">
+          <option value="Employees,Budget">Employees number vs. Annual Budget</option>
+          <option value="Budget,Adoption_Revenue">Annual budget vs. Adoption income</option>
+          <option value="Adoptions,Euthanized">Adoption vs. Euthanasia</option>
+        </select>
+      </div>
+      <!-- Line chart -->
+      <div class="row">
+        <div class="col-12">
+          <svg id="trend-line-chart" width="100%" height="400px"></svg>
+        </div>
+      </div>
+      <hr />
+      <!-- Stack the bar chart and the year slider -->
+      <div class="row">
+        <div class="col-md-8">
+          <svg id="stacked-bar-chart" width="100%" height="400px"></svg>
+        </div>
+        <div class="col-md-4">
+          <label for="year-slider">Select the year for details:</label>
+          <input
+            type="range"
+            min="2000"
+            max="2019"
+            value="2019"
+            id="year-slider"
+            class="form-control-range"
+          />
+          <div id="year-info" class="mt-3">
+            <!-- JS dynamically fills in all the indicator values of this year -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Indicator Comparison -->
+  <section id="comparison" class="pt-5">
+    <div class="container">
+      <h2 class="mt-5">Indicator Comparison</h2>
+      <p>This section presents the scatter plot of "Annual Budget vs. Adoption Income", as well as the heat map related to multiple indicators.</p>
+      <div class="row">
+        <div class="col-md-8">
+          <svg id="scatter-plot" width="100%" height="400px"></svg>
+        </div>
+        <div class="col-md-4">
+          <p>Hover the mouse to view detailed information. The legend illustrates the correspondence between the scattered point colors and the number segments of "euthanasia".</p>
+          <!-- Scatter plot illustration container -->
+          <div id="scatter-legend"></div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-12">
+          <svg id="correlation-heatmap" width="100%" height="400px"></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Adoption data of stray animals · Made by Miya Zhao
+  </footer>
+
+  <!-- Introduce D3.js v6 -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

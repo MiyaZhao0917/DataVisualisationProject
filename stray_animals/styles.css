@@ -1,0 +1,169 @@
+/* Base typography and layout */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Header styling */
+header {
+  background: #4a90e2;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+}
+
+/* Header title size */
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Navigation bar styling */
+nav {
+  background: #f1f1f1;
+  padding: 8px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Nav links */
+nav a {
+  margin-right: 16px;
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main content container */
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 32px;
+}
+section h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #4a90e2;
+}
+
+/* Grid for initial charts */
+#initial-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
+}
+
+/* Layout for interactive visualization */
+#visualization-container {
+  display: flex;
+  height: 600px;
+  border: 1px solid #ddd;
+}
+
+/* Sidebar styling */
+#sidebar {
+  width: 320px;
+  background: #f7f7f7;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  overflow-y: auto;
+}
+#sidebar h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+}
+#sidebar label {
+  display: block;
+  font-size: 14px;
+  margin: 8px 0 4px;
+  color: #444;
+}
+#sidebar select,
+#sidebar input[type="range"] {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+/* Chart containers in sidebar */
+#sidebar .chart-container {
+  margin-top: 16px;
+}
+#sidebar .chart-container canvas {
+  width: 100% !important;
+  height: 200px !important;
+}
+
+/* Map container fills remaining space */
+#map-container {
+  flex: 1;
+  position: relative;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Legend overlay on map */
+.legend {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  line-height: 1.4;
+}
+.legend-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.legend-gradient {
+  width: 150px;
+  height: 12px;
+  background: linear-gradient(to right, red, yellow, green);
+  border: 1px solid #ccc;
+  margin-bottom: 4px;
+}
+.legend-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Custom tooltip style for map markers */
+.tooltip-custom {
+  background: rgba(255,255,255,0.8);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #333;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+/* Footer styling */
+footer {
+  background: #f1f1f1;
+  color: #555;
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+}
